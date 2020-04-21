@@ -14,28 +14,31 @@
 - yarn add -D enzyme enzyme-adapter-react-16
 - yarn add -D @babel/core @babel/register @babel/preset-env @babel/preset-typescript babel-loader ts-node ignore-styles
 - yarn add -D nyc
+- yarn add -D husky lint-staged
 
 ## Todo
 - [x] npm init.
 - [x] bundler install Parcel, React app(typescript).
 - [x] lint, prettier(airbnb)
 - [x] mocha, chai
-- [ ] hushky hook(commit -> lint, prettier)
-- [ ] hushky hook(push -> testing mocha, chai)
+- [x] husky hook(commit -> lint, prettier / push -> testing mocha, chai)
 
 ## Commit
-- [x] React App - Typescript.
-- [ ] list, prettier
-
-## Tips
-- Commit[0]: React-app Typescript to Parcel.
-- Commit[1]: lint, prettier
+- commit[0]: React-app Typescript to Parcel.
+- commit[1]: lint, prettier
+- commit[2]: mocha, chai
+- commit[3]: husky hook(commit, push)
 
 
 ## Study
 - 설치할 eslint패키지 파일확인 
 > - npm info "eslint-config-airbnb@latest" peerDependencies
-
+- husky
+> - git hooks를 쉽게 만들어 잘못된 commit 또는 push를 방지.
+- lint-staged
+> - staged(수정한 파일을 곧 commit할 것이라고 표시한 상태)된 파일만 lint하기.
+- git commit상태 해제(commit취소하고 unstaged 상태로 돌리고 워킹디렉터리에 보존)
+> - git reset HEAD^
 
 ## Command
 ```
@@ -66,6 +69,17 @@ yarn mocha -r @babel/register -r ts-node/register -r ./test/dom.js -r ./test/hel
 
 yarn nyc mocha -r @babel/register -r ts-node -r ./test/dom.js -r ./test/helpers.js -r ignore-styles ./src/**/*.spec.*
 // (mocha)테스팅을 상세한 nyc로 결과 확인하기.
+
+# lint-staged
+package.json에서 { "lint-staged": { "src/**/!(*.spec).{ts,tsx}": [ "yarn lint:fix" ] }}
+혹은 시간이 걸리겠지만, 전체 코드들을 yarn prettier를 실행시키고 lint를 실행시키도 무방함.
+또한 staged에 있는 파일들에 대해서 추가적으로 작업을 시켜도 됨.
+
+# husky
+package.json에서 { "husky": {"hooks": { "pre-push": "", "pre-commit": [ "", "" ]}}} 작성.
+"pre-push": git에 push되기 직전 작업을 실행.
+"pre-commit": git에 commit되기 직전 작업을 실행.
+
 ```
 
 ## Refs.
