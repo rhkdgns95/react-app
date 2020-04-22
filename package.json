@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
@@ -44,10 +45,10 @@
   "scripts": {
     "test": "mocha",
     "dev": "parcel -p 3000 ./public/index.html --open",
-    "build": "parcel build ./public/index.html",
+    "build": "parcel build ./public/index.html -d my_dist --public-url ./",
     "prettier": "prettier --write --config ./.prettierrc \"./src/**/!(*.spec).{ts,tsx}\"",
     "lint": "eslint \"src/**/!(*.spec).{js,jsx,ts,tsx}\"",
-    "lint:fix": "eslint --fix \"src/**/!(*.spec).\"",
+    "lint:fix": "eslint --fix \"src/**/!(*.spec).{ts,tsx}\"",
     "nyc": "nyc mocha -r @babel/register -r ts-node/register -r ./test/helpers.js -r ./test/dom.js -r ignore-styles ./src/**/*.spec.*",
     "test:unit": "mocha -r @babel/register -r ts-node/register -r ./test/helpers.js -r ./test/dom.js -r ignore-styles ./src/**/*.spec.*",
     "test:unit:watch": "mocha -r @babel/register -r ts-node/register -r ./test/helpers.js -r ./test/dom.js -r ignore-styles ./src/**/*.spec.* -- --watch",

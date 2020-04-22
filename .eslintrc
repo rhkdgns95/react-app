@@ -1,4 +1,11 @@
 {
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".css"]
+      }
+    }
+  },
   "parser": "@typescript-eslint/parser",
   "globals": {
     "window": true,
@@ -20,6 +27,7 @@
     "no-console": 1, // 점검할땐 2로 변경할것.
     "react/jsx-filename-extension": [2, { "extensions": [".tsx", ".jsx"] }],
     "react/jsx-props-no-spreading": 0,
+    "no-unused-vars": 2,
     "import/extensions": [
       "error",
       "ignorePackages", {
@@ -30,12 +38,5 @@
         "json": "never"
       }
     ]
-  },
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx", ".css"]
-      }
-    }
   }
 }

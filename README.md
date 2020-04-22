@@ -22,13 +22,16 @@
 - [x] lint, prettier(airbnb)
 - [x] mocha, chai
 - [x] husky hook(commit -> lint, prettier / push -> testing mocha, chai)
+- [x] parcel build
+- [ ] ssr - loadable components
+- [ ] styled-components
 
 ## Commit
 - commit[0]: React-app Typescript to Parcel.
 - commit[1]: lint, prettier
 - commit[2]: mocha, chai
 - commit[3]: husky hook(commit, push)
-
+- commit[4]: parcel build
 
 ## Study
 - 설치할 eslint패키지 파일확인 
